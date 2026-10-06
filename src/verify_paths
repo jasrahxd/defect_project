@@ -1,0 +1,31 @@
+import os
+
+def check_factory_paths():
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
+    
+    paths_to_check = {
+        "Training (Good Items)": os.path.join(base_dir, 'train', 'good'),
+        "Testing (Good Items)": os.path.join(base_dir, 'test', 'good'),
+        "Testing (Defective Items)": os.path.join(base_dir, 'test', 'defective')
+    }
+    
+    print("--- Factory Line Path Diagnostics ---")
+    all_ok = True
+    for name, path in paths_to_check.items():
+        if os.path.exists(path):
+            img_count = len([f for f in os.listdir(path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))])
+            print(f"✅ {name}: Found at '{path}' ({img_count} images loaded)")
+            if img_count == 0:
+                print(f"   ⚠️ WARNING: Folder is empty! Put your images here.")
+                all_ok = False
+        else:
+            print(f"❌ {name}: Path DOES NOT exist at '{path}'")
+            all_ok = False
+            
+    if all_ok:
+        print("\n🚀 Status: Paths are flawless. Proceed to 'python src/train.py' immediately!")
+    else:
+        print("\n🛑 Status: Fix the missing or empty folders listed above.")
+
+if __name__ == '__main__':
+    check_factory_paths()

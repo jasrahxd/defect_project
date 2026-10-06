@@ -1,0 +1,11 @@
+streamlit>=1.40,<2.0
+pandas>=2.2,<3.0
+numpy>=1.26,<3.0
+scikit-learn>=1.5,<2.0
+requests>=2.32,<3.0
+python-dotenv>=1.0,<2.0
+opencv-python>=4.10,<5.0
+pillow>=10.0,<13.0
+matplotlib>=3.9,<4.0
+tensorflow>=2.18,<3.0
+keras>=3.5,<4.0
