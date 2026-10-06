@@ -8,7 +8,8 @@ import cv2
 st.set_page_config(page_title="AI Defect Scanner", layout="centered")
 st.title("🏭 Real-Time Factory Defect Detection Portal")
 
-MODEL_PATH = r"C:\Users\jasrah\defect_project\models\defect_detector.pkl"
+MODEL_PATH = "models/defect_detector.pkl"
+
 
 @st.cache_resource
 def load_detection_model():
